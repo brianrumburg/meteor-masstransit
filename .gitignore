@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 .npm
+=======
+.meteor/local
+.meteor/meteorite
+>>>>>>> d67541cd7b54989d15fc1b1bed60d32c7be01ad6
