@@ -25,7 +25,7 @@ MassTransit.bind('PingMassTransit:Pong');
 
 ### On Client OR Server
 
-####Publishing
+#### Publishing
 ```javascript
 MassTransit.publish('PingMassTransit:Ping', {
   SomeInteger: 1234,
@@ -35,16 +35,16 @@ MassTransit.publish('PingMassTransit:Ping', {
 });
 ```
 
-####Subscribing
+#### Subscribing
 Inbound messages (including envelope) can be observed on a [Mongo.Collection](http://docs.meteor.com/#/full/mongo_collection).  [Here](http://masstransit.readthedocs.org/en/latest/advanced/interop.html) is some information on MassTransit's envelope format.
 ```javascript
 MassTransit.inbound.find({}).observe({
   added: function(doc) {
     console.log('server pong received')
     console.log(doc);
-    
+
     //do something interesting with doc
-    
+
     MassTransit.inbound.remove(doc._id);
   }
 });
