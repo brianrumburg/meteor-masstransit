@@ -15,9 +15,20 @@ Some [examples](https://github.com/brianrumburg/meteor-masstransit-examples) to 
 # Getting Started
 
 ### On Server
+Send [connection](https://www.npmjs.com/package/amqp#connection), [queue](https://www.npmjs.com/package/amqp#queue), and [exchange](https://www.npmjs.com/package/amqp#exchange) options.
 ```javascript
-//Tell it where your AMQP server is and what queue you would like to listen on.
-MassTransit.init({host: 'localhost', queueName: 'myQueue'});
+//In this case we are connecting to localhost and listening on a new queue named myQueue
+MassTransit.init({
+  connection: {
+    host: 'localhost'
+  },
+  queue: {
+    name: 'myQueue'
+  },
+  exchange: {
+    type: 'fanout'
+  }
+});
 
 //Tell it what message types you would like to listen for
 MassTransit.bind('PingMassTransit:Pong');
