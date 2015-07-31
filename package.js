@@ -1,6 +1,6 @@
 Package.describe({
   name: 'jsposer:masstransit',
-  version: '1.0.0',
+  version: '1.1.0',
   // Brief, one-line summary of the package.
   summary: 'A conduit to MassTransit',
   // URL to the Git repository containing the source code for this package.
