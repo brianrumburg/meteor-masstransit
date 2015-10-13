@@ -1,6 +1,6 @@
 Package.describe({
   name: 'jsposer:masstransit',
-  version: '1.1.0',
+  version: '1.1.1',
   // Brief, one-line summary of the package.
   summary: 'A conduit to MassTransit',
   // URL to the Git repository containing the source code for this package.
@@ -15,7 +15,10 @@ Package.onUse(function(api) {
   api.addFiles('lib/masstransit-both.js');  api.addFiles('lib/masstransit-server.js', 'server');
   api.addFiles('lib/masstransit-client.js', 'client');
   api.export('MassTransit');
-  api.use('mongo');
+  api.use([
+    'mongo',
+    'ground:db@0.3.14'
+  ], ['client', 'server']);
 });
 
 Package.onTest(function(api) {
